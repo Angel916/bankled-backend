@@ -55,8 +55,7 @@ async function forgetPassword(req, res) {
       otp: otp,
       expiresAt: expiresAt,
     });
-    console.log("otp",otp)
-
+    
     await emailService.sendPasswordResetOTP(email, otp);
     return res.status(200).json({
       message: "OTP sent successfully",

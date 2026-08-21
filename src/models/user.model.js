@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt");
-const { defaultMaxListeners } = require("nodemailer/lib/xoauth2");
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -43,7 +42,7 @@ userSchema.pre("save",async function (next) {
     return 
 })
 userSchema.methods.comparePassword = async function (password) {
-    console.log(password,this.password);
+    
     return bcrypt.compare(password,this.password)
     
 }
